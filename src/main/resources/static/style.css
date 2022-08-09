@@ -1,8 +1,46 @@
-h1{
-text-align: center;
+.topnav {
+float:right;
 }
 
-table {
-text-align:center;
+.navbuttons {
+padding:10px;}
+
+.register{
+margin-right:80px;
+}
+
+.navbg{
+margin-top:20px;
+background-color:#a6b0bf;
+}
+
+body{
+background: url(images/background2.jpg);
+background-repeat: no-repeat;
+background-size: 100%;
+}
+
+.bookimg{
+max-width: 40%;
+height: auto;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+.logo{
+padding-top:10px;
+}
+
+.firstcol {
+padding:20px;
+}
+
+.intro {
+text-align: center;
+font-style: italic;
+font-size: 18px;
+color: #414E64;
 }
 

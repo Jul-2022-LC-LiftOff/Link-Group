@@ -7,26 +7,76 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/style.css}">
 </head>
-<body>
-<h1> Welcome to MyBooksApp</h1>
-<br>
-<br>
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>ISBN</th>
-        <th>Published</th>
-        <th>Average Rating </th>
-    </tr>
-    </thead>
-    <tr th:each="book : ${allBooks}">
-        <td th:text = "${book.name}" td>
-        <td th:text = "${book.isbn}" td>
-        <td th:text = "${book.published}" td>
-        <td th:text = "${book.averageRating}" td>
-    </tr>
-</table>
+<body>
+<header>
+    <div class="row navbg">
+
+        <div class="col-sm">
+            <a href = "#" class = "link-dark"><img class = "logo bookimg" src = "/images/logo4.png"></a>
+        </div>
+
+        <div class="col-sm">
+        </div>
+
+        <div class="col-sm">
+            <div class="topnav">
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item navbuttons"><button type="button" class="btn " style = "background-color:#414E64; color: white">Sign in</button></li>
+                        <br>
+                        <li class="nav-item navbuttons register"><button  type="button" class="btn" style = "background-color:#414E64; color: white">Register</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+
+</header>
+
+<div class = "container">
+
+    <div class = "row">
+        <div class = "col-12 firstcol"></div>
+    </div>
+
+    <div class = "row">
+        <div class = "col-2 firstcol"></div>
+        <div class = "col-8 firstcol">
+            <p class = "intro">Welcome to MyLibraryApp. It will help you keep track of
+                your books, discover new books, and more. Happy reading! </p>
+        </div>
+        <div class = "col-2 firstcol"></div>
+    </div>
+
+    <div class = "row">
+        <div class = "col-2 firstcol"></div>
+        <div class = "col-8 firstcol">
+            <div class="input-group">
+            <input type="search" class="form-control rounded" placeholder="Search by title / author" aria-label="Search" aria-describedby="search-addon" />
+            <button type="button" style = "background-color: #414E64; color: white" class="btn ">Search</button>
+            </div>
+        </div>
+        <div class = "col-2 firstcol"></div>
+    </div>
+
+    <div class = "row">
+        <div class = "col-12 firstcol"></div>
+    </div>
+
+    <div class = "row">
+        <div class = "col-4 firstcol"> <img class = "bookimg" th:src = "@{${allBooks[0].imageUrl}}"> </div>
+        <div class = "col-4 firstcol"> <img class = "bookimg" th:src = "@{${allBooks[10].imageUrl}}"> </div>
+        <div class = "col-4 firstcol"> <img class = "bookimg" th:src = "@{${allBooks[16].imageUrl}}"> </div>
+    </div>
+
+    <div class = "row">
+        <div class = "col-4 firstcol"><img class = "bookimg" th:src = "@{${allBooks[19].imageUrl}}" ></div>
+        <div class = "col-4 firstcol"> <img class = "bookimg" th:src = "@{${allBooks[18].imageUrl}}" ></div>
+        <div class = "col-4 firstcol"><img class = "bookimg" th:src = "@{${allBooks[17].imageUrl}}" ></div>
+    </div>
+</div>
+
 </body>
 </html>

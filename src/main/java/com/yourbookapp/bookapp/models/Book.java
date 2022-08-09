@@ -1,6 +1,7 @@
 package com.yourbookapp.bookapp.models;
 
 import javax.persistence.Entity;
+import java.awt.*;
 
 @Entity
 public class Book extends AbstractEntity {
@@ -9,12 +10,14 @@ public class Book extends AbstractEntity {
     private String isbn;
     private String published;
     private int averageRating;
+    private String imageUrl;
 
-    public Book(String name, String isbn, String published, int averageRating) {
+    public Book(String name, String isbn, String published, int averageRating, String imageUrl) {
         this.name = name;
         this.isbn = isbn;
         this.published = published;
         this.averageRating = averageRating;
+        this.imageUrl = imageUrl;
     }
 
     public Book() {}
@@ -49,6 +52,14 @@ public class Book extends AbstractEntity {
 
     public void setAverageRating(int averageRating) {
         this.averageRating = averageRating;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override
