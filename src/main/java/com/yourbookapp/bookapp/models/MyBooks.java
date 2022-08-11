@@ -1,29 +1,23 @@
 package com.yourbookapp.bookapp.models;
 
 import javax.persistence.Entity;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 @Entity
-public class Book extends AbstractEntity {
+public class MyBooks extends  AbstractEntity {
 
     private String name;
-    private String isbn;
-    private String published;
     private int averageRating;
     private String imageUrl;
-    public static final ArrayList<String>statusList = new ArrayList<>(Arrays.asList("Want to Read", "Currently Reading", "Read"));
+    private String readingStatus;
 
-    public Book(String name, String isbn, String published, int averageRating, String imageUrl) {
+    public MyBooks(String name, int averageRating, String imageUrl, String readingStatus) {
         this.name = name;
-        this.isbn = isbn;
-        this.published = published;
         this.averageRating = averageRating;
         this.imageUrl = imageUrl;
+        this.readingStatus = readingStatus;
     }
 
-    public Book() {}
+    public MyBooks() {};
 
     public String getName() {
         return name;
@@ -31,22 +25,6 @@ public class Book extends AbstractEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getPublished() {
-        return published;
-    }
-
-    public void setPublished(String published) {
-        this.published = published;
     }
 
     public int getAverageRating() {
@@ -63,6 +41,14 @@ public class Book extends AbstractEntity {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getReadingStatus() {
+        return readingStatus;
+    }
+
+    public void setReadingStatus(String readingStatus) {
+        this.readingStatus = readingStatus;
     }
 
     @Override

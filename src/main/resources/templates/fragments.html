@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:fragment = "head">
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+
+<header th:fragment = "header-logged-out">
+    <div class="row navbg">
+
+        <div class="col-sm">
+            <a href = "/" class = "link-dark"><img class = "logo bookimg" src = "/images/logo4.png"></a>
+        </div>
+
+        <div class="col-sm">
+        </div>
+
+        <div class="col-sm">
+            <div class="topnav">
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item navbuttons"><button type="button" class="btn " style = "background-color:#414E64; color: white">Sign in</button></li>
+                        <br>
+                        <li class="nav-item navbuttons register"><button  type="button" class="btn" style = "background-color:#414E64; color: white">Register</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+
+</header>
+
+<header th:fragment = "header-logged-in">
+    <div class="row navbg">
+
+        <div class="col-sm">
+            <a href = "/" class = "link-dark"><img class = "logo bookimg" src = "/images/logo4.png"></a>
+        </div>
+
+        <div class="col-sm">
+        </div>
+
+        <div class="col-sm">
+            <div class="topnav">
+                <nav>
+                    <ul class="nav">
+                        <a href ="/mybooks" >
+                            <li class="nav-item navbuttons"><button type="button" class="btn " style = "background-color:#414E64; color: white">My Books</button></li>
+                        </a>
+                        <br>
+                        <li class="nav-item navbuttons register"><button  type="button" class="btn" style = "background-color:#414E64; color: white">Sign out</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+
+</header>
+
+</body>

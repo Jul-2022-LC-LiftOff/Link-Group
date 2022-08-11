@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace = "fragments :: head">
+</head>
+
+<body>
+<header th:replace ="fragments :: header-logged-in">
+</header>
+
+<div class = "container">
+
+    <div class = "row">
+        <div class = "col-12 firstcol"></div>
+    </div>
+
+    <div class = "row">
+        <div class = "col-12 firstcol"></div>
+    </div>
+
+    <div class = "row">
+        <div class = "col-12 firstcol"></div>
+    </div>
+
+
+
+    <div class = "row">
+
+
+        <div class = "col-4 firstcol">
+            <img class = "bookimgview" th:src = "@{${book.imageUrl}}">
+
+            <form method="post">
+                <div class="form-group">
+                    <select name="readingStatus" class=" form-select selectBook  bg-secondary text-white"  id="book.id" style = "border:none; background-color:#635666; padding:5px; font-size:14px">
+                        <option th:each="status : ${book.statusList}"
+                                th:value="${status}"
+                                th:text="${status}">
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Add Book" class="btn btn-primary selectBook" style = "font-size:13px; margin-top:-5px">
+                </div>
+            </form>
+
+        </div>
+
+
+        <div class = "col-4 firstcol"><div style = "margin-left:-100px">
+            <h4 th:text = "${book.name}" style = "margin-top:30px"></h4>
+            <hr>
+            <div  style = "width:60%; height:60%; font-size: 15px">
+                <table class="table table-borderless table-condensed">
+                    <tr>
+                        <td>Author</td>
+                        <td>(Author)</td>
+                    </tr>
+                    <tr>
+                        <td>Genre</td>
+                        <td>(Genre)</td>
+                    </tr>
+                    <tr>
+                        <td>Rating</td>
+                        <td th:text="${book.averageRating}"></td>
+                    </tr>
+                    <tr>
+                        <td>ISBN</td>
+                        <td th:text="${book.isbn}"></td>
+                    </tr>
+                    <tr>
+                        <td >Published</td>
+                        <td th:text="${book.published}"></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        </div>
+
+
+        <div class = "col-4 firstcol"></div>
+
+
+
+
+    </div>
+</div>
+
+</body>
+</html>

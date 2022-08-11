@@ -1,38 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" th:href="@{/style.css}">
+<head th:replace = "fragments :: head">
 </head>
 
 <body>
-<header>
-    <div class="row navbg">
 
-        <div class="col-sm">
-            <a href = "#" class = "link-dark"><img class = "logo bookimg" src = "/images/logo4.png"></a>
-        </div>
-
-        <div class="col-sm">
-        </div>
-
-        <div class="col-sm">
-            <div class="topnav">
-                <nav>
-                    <ul class="nav">
-                        <li class="nav-item navbuttons"><button type="button" class="btn " style = "background-color:#414E64; color: white">Sign in</button></li>
-                        <br>
-                        <li class="nav-item navbuttons register"><button  type="button" class="btn" style = "background-color:#414E64; color: white">Register</button></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-
-    </div>
-
+<header th:replace = "fragments :: header-logged-out">
 </header>
 
 <div class = "container">
@@ -54,8 +27,8 @@
         <div class = "col-2 firstcol"></div>
         <div class = "col-8 firstcol">
             <div class="input-group">
-            <input type="search" class="form-control rounded" placeholder="Search by title / author" aria-label="Search" aria-describedby="search-addon" />
-            <button type="button" style = "background-color: #414E64; color: white" class="btn ">Search</button>
+                <input type="search" class="form-control rounded" placeholder="Search by title / author" aria-label="Search" aria-describedby="search-addon" />
+                <button type="button" style = "background-color: #414E64; color: white" class="btn ">Search</button>
             </div>
         </div>
         <div class = "col-2 firstcol"></div>
@@ -66,15 +39,15 @@
     </div>
 
     <div class = "row">
-        <div class = "col-4 firstcol"> <img class = "bookimg" th:src = "@{${allBooks[0].imageUrl}}"> </div>
-        <div class = "col-4 firstcol"> <img class = "bookimg" th:src = "@{${allBooks[10].imageUrl}}"> </div>
-        <div class = "col-4 firstcol"> <img class = "bookimg" th:src = "@{${allBooks[16].imageUrl}}"> </div>
+        <div class = "col-4 firstcol"> <a th:href="'/view/' + ${allBooks[0].id}"> <img class = "bookimg" th:src = "@{${allBooks[0].imageUrl}}"> </a></div>
+        <div class = "col-4 firstcol"> <a th:href="'/view/' + ${allBooks[10].id}"><img class = "bookimg" th:src = "@{${allBooks[10].imageUrl}}"></a> </div>
+        <div class = "col-4 firstcol"> <a th:href="'/view/' + ${allBooks[16].id}"><img class = "bookimg" th:src = "@{${allBooks[16].imageUrl}}"></a> </div>
     </div>
 
     <div class = "row">
-        <div class = "col-4 firstcol"><img class = "bookimg" th:src = "@{${allBooks[19].imageUrl}}" ></div>
-        <div class = "col-4 firstcol"> <img class = "bookimg" th:src = "@{${allBooks[18].imageUrl}}" ></div>
-        <div class = "col-4 firstcol"><img class = "bookimg" th:src = "@{${allBooks[17].imageUrl}}" ></div>
+        <div class = "col-4 firstcol"><a th:href="'/view/' + ${allBooks[19].id}"><img class = "bookimg" th:src = "@{${allBooks[19].imageUrl}}"></a></div>
+        <div class = "col-4 firstcol"><a th:href="'/view/' + ${allBooks[18].id}"><img class = "bookimg" th:src = "@{${allBooks[18].imageUrl}}"></a></div>
+        <div class = "col-4 firstcol"><a th:href="'/view/' + ${allBooks[17].id}"><img class = "bookimg" th:src = "@{${allBooks[17].imageUrl}}"></a></div>
     </div>
 </div>
 
