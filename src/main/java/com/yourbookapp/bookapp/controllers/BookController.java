@@ -39,11 +39,17 @@ public class BookController {
     }
 
     @PostMapping("view/{bookId}")
-    public String addBook(MyBooks newBook, @PathVariable int bookId, @RequestParam String readingStatus) {
+    public String addBook(MyBooks newBook, @PathVariable int bookId, @RequestParam String readingStatus, Model model) {
+        model.addAttribute("allBooks", bookRepository.findAll());
         Optional optBook = bookRepository.findById(bookId);
         if (!optBook.isEmpty()) {
             Book book = (Book) optBook.get();
-            newBook = new MyBooks(book.getName(), book.getAverageRating(), book.getImageUrl(), readingStatus);
+            newBook = new MyBooks(book.getName(), book.getAverageRating(), book.getImageUrl(), readingStatus, book);
+            for (MyBooks b : myBooksRepository.findAll()) {
+                if (b.getBook().getId() ==  newBook.getBook().getId()) {
+                    return "error-duplicate";
+                } else continue;
+            }
             myBooksRepository.save(newBook);
         }
         return "redirect:/mybooks";
