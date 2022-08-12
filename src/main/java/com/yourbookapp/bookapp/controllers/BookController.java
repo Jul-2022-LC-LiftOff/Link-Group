@@ -62,17 +62,20 @@ public class BookController {
         return "mybooks";
     }
 
-    @GetMapping("remove/{bookId}")
-    public String removeBook(Model model, @PathVariable int bookId) {
-        Optional optBook = bookRepository.findById(bookId);
+    @GetMapping("remove/{myBookId}")
+    public String removeBook(Model model, @PathVariable int myBookId) {
+        Optional optBook = myBooksRepository.findById(myBookId);
         if (!optBook.isEmpty()) {
-            Book book = (Book) optBook.get();
-            model.addAttribute("book", book);
+            MyBooks myBook = (MyBooks) optBook.get();
+            model.addAttribute("book", myBook.getBook());
+        }
             return "remove";
-        } else {
-            return "redirect:/";
         }
 
+    @PostMapping("remove/{myBookId}")
+    public String processRemoveBook(@PathVariable int myBookId) {
+        myBooksRepository.deleteById(myBookId);
+        return "redirect:/mybooks";
     }
 
 }
