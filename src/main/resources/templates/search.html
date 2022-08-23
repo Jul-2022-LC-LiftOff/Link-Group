@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+
+<header>
+    <div class="row navbg">
+
+        <div class="col-sm">
+            <a href = "/" class = "link-dark"><img class = "logo bookimg" src = "/images/logo4.png"></a>
+        </div>
+
+        <div class="col-sm">
+        </div>
+
+        <div class="col-sm">
+            <div class="topnav">
+                <nav>
+                    <ul class="nav">
+                        <!--<li class="nav-item navbuttons"><button type="button" class="btn " style = "background-color:#414E64; color: white">Sign in</button></li>
+                        <br>
+                        <li class="nav-item navbuttons register"><button  type="button" class="btn" style = "background-color:#414E64; color: white">Register</button></li>-->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+
+</header>
+<div class = "container">
+
+    <div class = "row">
+        <div class = "col-12 firstcol"></div>
+    </div>
+
+    <div class = "row">
+        <div class = "col-2 firstcol"></div>
+        <div class = "col-8 firstcol">
+            <p class = "intro">Welcome to MyLibraryApp Search. It will help you keep track of
+                your books, discover new books, and more. Happy reading! </p>
+        </div>
+        <div class = "col-2 firstcol"></div>
+    </div>
+
+    <form method="post">
+        <div class = "search">
+            <div class = "col-2 firstcol"></div>
+            <div class = "col-8 firstcol">
+                <div class="form-group">
+                    <input class="form-control" field="${searchDTO.searchstring}"/>
+                    <input type="submit" class="btn btn-primary" value="Search" />
+                </div>
+            </div>
+            <div class = "col-2 firstcol"></div>
+        </div>
+    </form>
+    <div class = "row">
+        <div class = "col-12 firstcol"></div>
+    </div>
+
+    <table class="book-listing">
+        <tr th:each="book : ${books}">
+            <td>
+                <p>
+                    Book Id:
+                    <a th:href="@{'/view/' + ${book.id}}" th:text="${book.id}"></a>
+                </p>
+                <p th:text="${'Name: ' + book.name}"></p>
+                <p>
+                    <img class = "bookimg" th:src = "${book.imageUrl}">
+                </p>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+
+</html>
