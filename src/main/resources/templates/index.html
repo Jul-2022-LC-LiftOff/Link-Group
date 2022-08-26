@@ -4,7 +4,6 @@
 </head>
 
 <body>
-
 <header th:replace = "fragments :: header-logged-out">
 </header>
 
@@ -27,30 +26,33 @@
         <div class = "col-2 firstcol"></div>
         <div class = "col-8 firstcol">
             <div class="input-group">
-                <input type="search" class="form-control rounded" placeholder="Search by title / author" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" style = "background-color: #414E64; color: white" class="btn ">Search</button>
-            </div>
-        </div>
-        <div class = "col-2 firstcol"></div>
-    </div>
+                <input type="search" class="form-control rounded" placeholder="Search by title / author" aria-label="Search" aria-describedby="search-addon"/>
+              <button type="button" style = "background-color: #414E64; color: white" class="btn "><a class="search" href="/search">Search</a></button>
+                <!--  <input type="submit" class="btn btn-primary" value="Search" />-->
+              </div>
+          </div>
+          <div class = "col-2 firstcol"></div>
+      </div>
 
-    <div class = "row">
-        <div class = "col-12 firstcol"></div>
-    </div>
 
-    <div class = "row">
-        <div class = "col-4 firstcol"> <a th:href="'/view/' + ${allBooks[0].id}"> <img class = "bookimg" th:src = "@{${allBooks[0].imageUrl}}"> </a></div>
-        <div class = "col-4 firstcol"> <a th:href="'/view/' + ${allBooks[10].id}"><img class = "bookimg" th:src = "@{${allBooks[10].imageUrl}}"></a> </div>
-        <div class = "col-4 firstcol"> <a th:href="'/view/' + ${allBooks[16].id}"><img class = "bookimg" th:src = "@{${allBooks[16].imageUrl}}"></a> </div>
-    </div>
 
-    <div class = "row">
-        <div class = "col-4 firstcol"><a th:href="'/view/' + ${allBooks[19].id}"><img class = "bookimg" th:src = "@{${allBooks[19].imageUrl}}"></a></div>
-        <div class = "col-4 firstcol"><a th:href="'/view/' + ${allBooks[18].id}"><img class = "bookimg" th:src = "@{${allBooks[18].imageUrl}}"></a></div>
-        <div class = "col-4 firstcol"><a th:href="'/view/' + ${allBooks[17].id}"><img class = "bookimg" th:src = "@{${allBooks[17].imageUrl}}"></a></div>
-    </div>
-</div>
+      <div class = "row">
+          <div class = "col-12 firstcol"></div>
+      </div>
 
-</body>
+      <div class = "row">
+          <div class = "col-4 firstcol"> <a th:href="'/view/' + ${allBooks[0].id}"> <img class = "bookimg" th:src = "@{${allBooks[0].imageUrl}}"> </a></div>
+          <div class = "col-4 firstcol"> <a th:href="'/view/' + ${allBooks[10].id}"><img class = "bookimg" th:src = "@{${allBooks[10].imageUrl}}"></a> </div>
+          <div class = "col-4 firstcol"> <a th:href="'/view/' + ${allBooks[16].id}"><img class = "bookimg" th:src = "@{${allBooks[16].imageUrl}}"></a> </div>
+      </div>
 
-</html>
+      <div class = "row">
+          <div class = "col-4 firstcol"><a th:href="'/view/' + ${allBooks[19].id}"><img class = "bookimg" th:src = "@{${allBooks[19].imageUrl}}"></a></div>
+          <div class = "col-4 firstcol"><a th:href="'/view/' + ${allBooks[18].id}"><img class = "bookimg" th:src = "@{${allBooks[18].imageUrl}}"></a></div>
+          <div class = "col-4 firstcol"><a th:href="'/view/' + ${allBooks[17].id}"><img class = "bookimg" th:src = "@{${allBooks[17].imageUrl}}"></a></div>
+      </div>
+  </div>
+
+  </body>
+
+  </html>

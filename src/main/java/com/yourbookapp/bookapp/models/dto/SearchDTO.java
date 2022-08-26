@@ -8,14 +8,14 @@ import javax.validation.constraints.Size;
 public class SearchDTO {
 
 
-    public String searchstring;
+    public String searchString;
 
     public String getSearchString() {
-        return searchstring;
+        return searchString;
     }
 
-    public void setSearchString(String searchstring) {
-        this.searchstring = searchstring;
+    public void setSearchString(String searchString) {
+        this.searchString = searchString;
     }
 
 }

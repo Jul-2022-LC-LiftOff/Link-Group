@@ -39,8 +39,8 @@ public class SearchController {
                                         Model model){
         Iterable<Book> books;
         String searchterm = searchDTO.getSearchString();
-        books = bookRepository.findAll();
-        //books = bookRepository.findAllByName(searchDTO.searchstring);
+       // books = bookRepository.findAll();
+        books = bookRepository.findByNameContains(searchterm);
         model.addAttribute("books", books);
         return "search";
     }
