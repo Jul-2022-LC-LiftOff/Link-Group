@@ -27,7 +27,7 @@ public class BookController {
     }
 
     @GetMapping("view/{bookId}")
-    public String displayViewBook(Model model, @PathVariable int bookId) {
+    public String displayViewBook(Model model, @PathVariable long bookId) {
         Optional optBook = bookRepository.findById(bookId);
         if (!optBook.isEmpty()) {
             Book book = (Book) optBook.get();
@@ -39,7 +39,7 @@ public class BookController {
     }
 
     @PostMapping("view/{bookId}")
-    public String addBook(MyBooks newBook, @PathVariable int bookId, @RequestParam String readingStatus, Model model) {
+    public String addBook(MyBooks newBook, @PathVariable long bookId, @RequestParam String readingStatus, Model model) {
         model.addAttribute("allBooks", bookRepository.findAll());
         Optional optBook = bookRepository.findById(bookId);
         if (!optBook.isEmpty()) {
@@ -63,7 +63,7 @@ public class BookController {
     }
 
     @GetMapping("remove/{myBookId}")
-    public String removeBook(Model model, @PathVariable int myBookId) {
+    public String removeBook(Model model, @PathVariable long myBookId) {
         Optional optBook = myBooksRepository.findById(myBookId);
         if (!optBook.isEmpty()) {
             MyBooks myBook = (MyBooks) optBook.get();
@@ -73,7 +73,7 @@ public class BookController {
         }
 
     @PostMapping("remove/{myBookId}")
-    public String processRemoveBook(@PathVariable int myBookId) {
+    public String processRemoveBook(@PathVariable long myBookId) {
         myBooksRepository.deleteById(myBookId);
         return "redirect:/mybooks";
     }

@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MyBooksRepository extends CrudRepository<MyBooks, Integer> {
+public interface MyBooksRepository extends CrudRepository<MyBooks, Long> {
 
 }
