@@ -24,13 +24,17 @@ public class Book extends AbstractEntity {
     @ManyToMany
     private List<Author> authors = new ArrayList<>();
 
-    public Book(String name, String isbn, String published, int averageRating, String imageUrl, List<Author> authors) {
+    @ManyToMany
+    private List<Genre> genres = new ArrayList<>();
+
+    public Book(String name, String isbn, String published, int averageRating, String imageUrl, List<Author> authors, List<Genre> genres) {
         this.name = name;
         this.isbn = isbn;
         this.published = published;
         this.averageRating = averageRating;
         this.imageUrl = imageUrl;
         this.authors = authors;
+        this.genres = genres;
     }
 
     public Book() {}
@@ -81,6 +85,14 @@ public class Book extends AbstractEntity {
 
     public void setMyBooks(MyBooks myBooks) {
         this.myBooks = myBooks;
+    }
+
+    public List<Genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<Genre> genres) {
+        this.genres = genres;
     }
 
     @Override

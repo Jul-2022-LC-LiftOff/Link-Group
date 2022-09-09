@@ -22,7 +22,6 @@
     </div>
 
 
-
     <div class = "row">
 
 
@@ -49,9 +48,6 @@
                 <input type="submit" value="Delete" class="btn btn-danger" style = "font-size:15px">
             </form>
 
-
-
-
         </div>
 
 
@@ -62,11 +58,15 @@
                 <table class="table table-borderless table-condensed">
                     <tr>
                         <td>Author</td>
-                        <td>(Author)</td>
+                        <td th:each = "author: ${book.authors}">
+                            <span th:text = "${author.name}"> </span>
+                        </td>
                     </tr>
                     <tr>
                         <td>Genre</td>
-                        <td>(Genre)</td>
+                        <td> <th:block th:each = "genre: ${book.genres}">
+                            <span th:text = "${genre.name}"> </span> </th:block>
+                        </td>
                     </tr>
                     <tr>
                         <td>Rating</td>
@@ -88,8 +88,6 @@
 
 
         <div class = "col-4 firstcol"></div>
-
-
 
 
     </div>
