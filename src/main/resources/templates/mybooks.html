@@ -38,7 +38,8 @@
                     <tr th:each="myBook : ${myBooksAll}" >
                         <td>   <img class = "mybooksimg" th:src = "@{${myBook.imageUrl}}"> </td>
                         <td th:text="${myBook.name}"></td>
-                        <td>Author</td>
+                        <td> <th:block th:each = "author: ${myBook.book.authors}"
+                                       style="white-space: pre;"  th:text = "${author.name}"> </th:block></td>
                         <td>Genre</td>
                         <td th:text="${myBook.averageRating}"></td>
                         <td th:text="${myBook.readingStatus}"></td>

@@ -54,7 +54,9 @@
                 <table class="table table-borderless table-condensed">
                     <tr>
                         <td>Author</td>
-                        <td>(Author)</td>
+                        <td th:each = "author: ${book.authors}"
+                            th:text = "${author.name}">
+                        </td>
                     </tr>
                     <tr>
                         <td>Genre</td>
