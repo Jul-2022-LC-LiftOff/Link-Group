@@ -78,5 +78,27 @@ public class BookController {
         return "redirect:/mybooks";
     }
 
+    @GetMapping("edit/{myBookId}")
+    public String editBook(Model model, @PathVariable long myBookId) {
+        Optional optBook = myBooksRepository.findById(myBookId);
+        if (!optBook.isEmpty()) {
+            MyBooks myBook = (MyBooks) optBook.get();
+            model.addAttribute("book", myBook.getBook());
+        }
+        return "edit";
+    }
+
+    @PostMapping("edit/{myBookId}")
+    public String processEditBook(@PathVariable long myBookId, @RequestParam String readingStatus) {
+        Optional optBook = myBooksRepository.findById(myBookId);
+        if (!optBook.isEmpty()) {
+            MyBooks myBook = (MyBooks) optBook.get();
+            myBook.setReadingStatus(readingStatus);
+            myBooksRepository.save(myBook);
+        }
+        return "redirect:/mybooks";
+    }
+
+
 }
 
