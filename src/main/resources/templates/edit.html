@@ -22,30 +22,26 @@
     </div>
 
 
+
     <div class = "row">
 
 
         <div class = "col-4 firstcol">
             <img class = "bookimgview" th:src = "@{${book.imageUrl}}">
 
-            <!-- <form method="post">
-                 <div class="form-group">
-                     <select name="readingStatus" class=" form-select selectBook  bg-secondary text-white"  id="book.id" style = "border:none; background-color:#635666; padding:5px; font-size:14px">
-                         <option th:each="status : ${book.statusList}"
-                                 th:value="${status}"
-                                 th:text="${status}">
-                         </option>
-                     </select>
-                 </div>
+            <form method="post">
+                <div class="form-group">
+                    <select name="readingStatus" class=" form-select selectBook  bg-secondary text-white"  id="book.id" style = "border:none; background-color:#635666; padding:5px; font-size:14px">
+                        <option th:each="status : ${book.statusList}"
+                                th:value="${status}"
+                                th:text="${status}">
+                        </option>
+                    </select>
+                </div>
 
-                 <div class="form-group">
-                     <input type="submit" value="Add Book" class="btn btn-primary selectBook" style = "font-size:13px; margin-top:-5px">
-                 </div>
-             </form>-->
-
-            <form method="post" class = "form-remove">
-                <p style = "margin-top: 20px">Remove this book?</p>
-                <input type="submit" value="Delete" class="btn btn-danger" style = "font-size:15px">
+                <div class="form-group">
+                    <input type="submit" value="Update status" class="btn btn-primary selectBook" style = "font-size:13px; margin-top:-5px">
+                </div>
             </form>
 
         </div>
