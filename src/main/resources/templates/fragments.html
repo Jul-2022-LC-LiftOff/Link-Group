@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:fragment = "head">
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>MyLibraryApp</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/style.css}">
@@ -24,9 +24,9 @@
             <div class="topnav">
                 <nav>
                     <ul class="nav">
-                        <li class="nav-item navbuttons"><button type="button" class="btn" style="background-color:#414E64; color: white" ><a class="login" href="/login">Login</a></button></li>
+                        <li class="nav-item navbuttons"><button type="button" class="btn" style="background-color:#414E64; color: white" ><a  href="/mybooks">MyBooks</a></button></li>
                         <br>
-                        <li class="nav-item navbuttons register"><button  type="button" class="btn" style = "background-color:#414E64; color: white" ><a class="login" href="/register">Register</a></button></li>
+                        <li class="nav-item navbuttons register"><button  type="button" class="btn" style = "background-color:#414E64; color: white" ><a  href="/logout">Logout</a></button></li>
                     </ul>
                 </nav>
             </div>
@@ -51,10 +51,10 @@
                 <nav>
                     <ul class="nav">
                         <a href ="/mybooks" >
-                            <li class="nav-item navbuttons"><button type="button" class="btn " style = "background-color:#414E64; color: white">My Books</button></li>
+                            <li class="nav-item navbuttons"><button type="button" class="btn " style = "background-color:#414E64; color: white"><a href="/mybooks">MyBooks</a></button></li>
                         </a>
                         <br>
-                        <li class="nav-item navbuttons register"><button  type="button" class="btn" style = "background-color:#414E64; color: white">Sign out</button></li>
+                        <li class="nav-item navbuttons register"><button  type="button" class="btn" style = "background-color:#414E64; color: white"><a href="/logout">Logout</a></button></li>
                     </ul>
                 </nav>
             </div>

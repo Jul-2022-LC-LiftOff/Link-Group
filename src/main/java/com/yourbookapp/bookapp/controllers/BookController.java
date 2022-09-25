@@ -2,14 +2,19 @@ package com.yourbookapp.bookapp.controllers;
 
 import com.yourbookapp.bookapp.data.BookRepository;
 import com.yourbookapp.bookapp.data.MyBooksRepository;
+import com.yourbookapp.bookapp.data.UserRepository;
 import com.yourbookapp.bookapp.models.Book;
 import com.yourbookapp.bookapp.models.MyBooks;
+import com.yourbookapp.bookapp.models.User;
+import com.yourbookapp.bookapp.models.dto.LoginFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 @Controller
@@ -20,10 +25,15 @@ public class BookController {
     @Autowired
     private MyBooksRepository myBooksRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping
     public String index(Model model) {
         model.addAttribute("allBooks", bookRepository.findAll());
-        return "index";
+            return "index";
+
+
     }
 
     @GetMapping("view/{bookId}")
@@ -39,16 +49,24 @@ public class BookController {
     }
 
     @PostMapping("view/{bookId}")
-    public String addBook(MyBooks newBook, @PathVariable long bookId, @RequestParam String readingStatus, Model model) {
+public String addBook(MyBooks newBook, @PathVariable long bookId, @RequestParam String readingStatus, HttpServletRequest request, LoginFormDTO loginFormDTO, Model model) {
         model.addAttribute("allBooks", bookRepository.findAll());
         Optional optBook = bookRepository.findById(bookId);
         if (!optBook.isEmpty()) {
             Book book = (Book) optBook.get();
-            newBook = new MyBooks(book.getName(), book.getAverageRating(), book.getImageUrl(), readingStatus, book);
-            for (MyBooks b : myBooksRepository.findAll()) {
-                if (b.getBook().getId() ==  newBook.getBook().getId()) {
-                    return "error-duplicate";
-                } else continue;
+            User theUser = userRepository.findByUsername(loginFormDTO.getUsername());
+            newBook = new MyBooks(book.getName(), book.getAverageRating(), book.getImageUrl(), readingStatus, book, theUser);
+
+
+
+
+            //MyBooks myBooks = myBooksRepository.findAll(theUser.getMyBooks());
+                //for (MyBooks myBooks1 : myBooksRepository.findAll()) {
+                for (MyBooks b : myBooksRepository.findAll()) {
+                    if (b.getBook().getId() ==  newBook.getBook().getId()) {
+                        return "error-duplicate";
+                    } else continue;
+
             }
             myBooksRepository.save(newBook);
         }

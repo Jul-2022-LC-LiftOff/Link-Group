@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-   <meta charset="UTF-8"/>
-   <title>Title</title>
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" th:href="@{/style.css}">
+<head th:replace = "fragments :: head">
 </head>
 <body>
 
@@ -23,8 +18,8 @@
          <div class="topnav">
             <nav>
                <ul class="nav">
-                  <!--<li class="nav-item navbuttons"><button type="button" class="btn " style = "background-color:#414E64; color: white">Sign in</button></li>
-                  <br>
+
+                  <!--<br>
                   <li class="nav-item navbuttons register"><button  type="button" class="btn" style = "background-color:#414E64; color: white">Register</button></li>-->
                </ul>
             </nav>
@@ -34,6 +29,7 @@
    </div>
 
 </header>
+<div class="center">
 <div class="login-page">
 
 <form method="post">
@@ -55,8 +51,12 @@
       </label>
    </div>
 
-   <input type="submit" class="btn btn-primary" value="Register" />
+   <input type="submit" class="btn btn-primary" style="background-color:#414E64; color: white" value="Register" />
+   <p>Have an account already? <a href="/login">Login.</a></p>
+
+
 </form>
+</div>
 </div>
 </body>
 </html>
