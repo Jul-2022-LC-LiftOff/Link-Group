@@ -14,13 +14,22 @@ public class MyBooks extends  AbstractEntity {
     @OneToOne
     private Book book;
 
-    public MyBooks(String name, int averageRating, String imageUrl, String readingStatus, Book book) {
+    @OneToOne(mappedBy = "myBooks")
+    private User user;
+
+
+
+    public MyBooks(String name, int averageRating, String imageUrl, String readingStatus, Book book, User user) {
         this.name = name;
         this.averageRating = averageRating;
         this.imageUrl = imageUrl;
         this.readingStatus = readingStatus;
         this.book = book;
+        this.user = user;
+
     }
+
+
 
     public MyBooks() {};
 
@@ -62,6 +71,14 @@ public class MyBooks extends  AbstractEntity {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
